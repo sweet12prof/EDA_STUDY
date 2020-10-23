@@ -1,0 +1,820 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 GMT 2018
+Options: 
+Date:    Wed Oct 21 15:26:23 2020
+Host:    tiuelabb4.ti.lab (x86_64 w/Linux 3.10.0-1127.19.1.el7.x86_64) (4cores*4cpus*1physical cpu*Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz 6144KB) (7887160KB)
+OS:      CentOS Linux release 7.8.2003 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (8 seconds elapsed).
+
+WARNING: This version of the tool is 866 days old.
+@genus:root: 1> set_db init_lib_search_path /eda/pdk/FreePDK45/osu_soc/lib/files/
+  Setting attribute of root '/': 'init_lib_search_path' = /eda/pdk/FreePDK45/osu_soc/lib/files/
+1 /eda/pdk/FreePDK45/osu_soc/lib/files/
+@genus:root: 2> set_db script_search_path ~/Desktop/CAD/Cadence2/Counter_10/scripts/
+  Setting attribute of root '/': 'script_search_path' = ~/Desktop/CAD/Cadence2/Counter_10/scripts/
+1 ~/Desktop/CAD/Cadence2/Counter_10/scripts/
+@genus:root: 3> set_db init_hdl_search ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+Error   : <Start> word is not recognized. [TUI-182] [set_db]
+        : 'init_hdl_search' is not a recognized object/attribute. Type 'help root:' to get a list of all supported objects and attributes.
+        : Check <Start> object/attribute.
+1
+@genus:root: 4> set_db init_hdl_search_path ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+  Setting attribute of root '/': 'init_hdl_search_path' = ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+1 ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+@genus:root: 5> set_db library gscl45nm.lib
+
+Threads Configured:3
+
+  Message Summary for Library gscl45nm.lib:
+  *****************************************
+  Could not find an attribute in the library. [LBR-436]: 96
+  Missing library level attribute. [LBR-516]: 1
+  *****************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.100000, 27.000000) in library 'gscl45nm.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+  Setting attribute of root '/': 'library' = gscl45nm.lib
+1 gscl45nm.lib
+@genus:root: 6> set_db hdl_vhdl_read_version 2008
+  Setting attribute of root '/': 'hdl_vhdl_read_version' = 2008
+1 2008
+@genus:root: 7> read_hdl -language vhdl {
+adder4_behavorial.vhd,
+Counter_Control_behave.vhd,
+reg_4bit_behavorial.vhd,         
+comparator_10_datatflow.vhd,     
+counterdatapath_behavorial.vhd,  
+topLevel_behavior.vhd  
+}
+Warning : Cannot open file. [VHDLPT-500]
+        : VHDL source file 'adder4_behavorial.vhd,'.
+        : The input VHDL file cannot be opened.  Make sure that the directory path and file extension (e.g., .vhdl) are specified.
+Warning : Cannot open file. [VHDLPT-500]
+        : VHDL source file 'Counter_Control_behave.vhd,'.
+Warning : Cannot open file. [VHDLPT-500]
+        : VHDL source file 'reg_4bit_behavorial.vhd,'.
+Warning : Cannot open file. [VHDLPT-500]
+        : VHDL source file 'comparator_10_datatflow.vhd,'.
+Warning : Cannot open file. [VHDLPT-500]
+        : VHDL source file 'counterdatapath_behavorial.vhd,'.
+Warning : Unimplemented VHDL 2008 IEEE Package, reading VHDL 1993 version instead. [VHDLPT-808]
+        : VHDL 2008 version of 'ieee/std_logic_arith.vhdl' is not available.
+@genus:root: 8> set_db hdl_vhdl_read_version 1993
+Error   : Cannot mix VHDL 2008 files with previous VHDL versions. [HPT-88] [set_db]
+        : Setting VHDL version to '1993' may conflict with previous VHDL version '2008'.
+        : Avoid mixing incompatible VHDL versions.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value '1993' cannot be set for attribute 'hdl_vhdl_read_version'. permitted values: { 1987 1993 2008 }
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+1
+@genus:root: 9> set_db hdl_vhdl_read_version 1993
+Error   : Cannot mix VHDL 2008 files with previous VHDL versions. [HPT-88] [set_db]
+        : Setting VHDL version to '1993' may conflict with previous VHDL version '2008'.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value '1993' cannot be set for attribute 'hdl_vhdl_read_version'. permitted values: { 1987 1993 2008 }
+1
+@genus:root: 10> set_db hdl_vhdl_read_version 2008
+  Setting attribute of root '/': 'hdl_vhdl_read_version' = 2008
+1 2008
+@genus:root: 11> set_db init_hdl_search_path ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+  Setting attribute of root '/': 'init_hdl_search_path' = ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+1 ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+@genus:root: 12> read_hdl adder4_behavorial.vhd
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+        : Invalid Verilog syntax is parsed, or unsupported Verilog syntax is encountered.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+        : A variable cannot be redeclared in the same scope.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 13> read_hdl -languaage vhdl adder4_behavorial.vhd
+Warning : Cannot open file. [VLOGPT-650]
+        : File '-languaage'.
+        : The specified file could not be opened.  Check the value of the init_hdl_search_path attribute.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'vhdl'.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 14> clear
+@genus:root: 15> read_hdl -languaage vhdl adder4_behavorial.vhd
+Warning : Cannot open file. [VLOGPT-650]
+        : File '-languaage'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'vhdl'.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 16> clear
+@genus:root: 17> read_hdl -languaage vhdl adder4_behavorial.vhd
+Warning : Cannot open file. [VLOGPT-650]
+        : File '-languaage'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'vhdl'.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 18> read_hdl -language vhdl adder4_behavorial.vhd
+@genus:root: 19> read_hdl -language vhdl adder4_behavorial.vhd
+ENTITY adder4 IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:adder4' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 1.
+        : A previously analyzed unit is being replaced.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:adder4-behavorial' depends on overwritten unit 'default:adder4'.
+        : A unit is considered out-of-date when a unit that it depends on is re-analyzed.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'adder4' in library 'default' with newly read VHDL entity 'adder4' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15.
+        : A newly read VHDL entity replaces any previously read Verilog module or VHDL entity in the same library if its name matches (case-insensitively) the existing module or entity.
+    For instance:
+        VHDL 'foo'                  replaces  VHDL {'FOO' or 'foo' or 'Foo' or ...} in the same library
+        VHDL 'foo' (in any library) replaces  Verilog {'FOO' or 'foo' or 'Foo' or ...} in the same library
+ 
+A newly read Verilog module replaces any previously read Verilog module if its name matches (case-sensitively) that module.  Further, it replaces any previously read VHDL entity in the same library if its name matches (case -insensitively) that entity.
+    For instance:
+        Verilog 'foo' replaces    VHDL {'FOO' or 'foo' or 'Foo' or ...} in the same library
+        Verilog 'foo' replaces    Verilog 'foo' only
+    In addition:
+        Verilog 'foo' does not replace Verilog 'FOO' and the two remain as distinct modules.
+@genus:root: 20> read_hdl -language vhdl Counter_Control_behave.vhd
+@genus:root: 21> read_hdl -language vhdl reg_4bit_behavorial.vhd
+@genus:root: 22> read_hdl -language vhdl comparator_10_datatflow.vhd
+@genus:root: 23> read_hdl -language vhdl counterdatapath_behavorial.vhd
+@genus:root: 24> read_hdl -language vhdl topLevel_behavior.vhd
+ENTITY topLevel IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:topLevel' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:toplevel-behavior' depends on overwritten unit 'default:toplevel'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'topLevel' in library 'default' with newly read VHDL entity 'topLevel' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd' on line 14.
+@genus:root: 25> elaborate topLevel
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'topLevel' from file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavior' for entity 'topLevel'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'CounterDatapath'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'reg_4bit'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'adder4'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'datatflow' for entity 'comparator_10'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behave' for entity 'Counter_Control'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'topLevel'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+UM:  flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:            50           1022                                      elaborate
+design:topLevel
+@genus:root: 26> gui_show
+  Checking the design.
+
+ 	 Check Design Report
+	 -------------------- 
+
+ Summary
+ ------- 
+
+                Name                 Total 
+-------------------------------------------
+Unresolved References                    0 
+Empty Modules                            0 
+Unloaded Port(s)                         0 
+Unloaded Sequential Pin(s)               0 
+Unloaded Combinational Pin(s)            0 
+Assigns                                  0 
+Undriven Port(s)                         0 
+Undriven Leaf Pin(s)                     0 
+Undriven hierarchical pin(s)             0 
+Multidriven Port(s)                      0 
+Multidriven Leaf Pin(s)                  0 
+Multidriven hierarchical Pin(s)          0 
+Multidriven unloaded net(s)              0 
+Constant Port(s)                         0 
+Constant Leaf Pin(s)                     0 
+Constant hierarchical Pin(s)            33 
+Preserved leaf instance(s)               0 
+Preserved hierarchical instance(s)       0 
+Libcells with no LEF cell                0 
+Physical (LEF) cells with no libcell     0 
+Subdesigns with long module name         0 
+Physical only instance(s)                0 
+Logical only instance(s)                 0 
+
+  Done Checking the design.
+@genus:root: 27> 
+@genus:root: 27> 
+@genus:root: 27> set_db hdl_track_filename_row_col true
+Info   : Enabled hdl_track_file_row_column attribute.
+       : Setting this attribute to 'true' can have an impact on the run time. Use this attribute only when filename, line number, and column information are needed in reports.
+  Setting attribute of root '/': 'hdl_track_filename_row_col' = true
+1 true
+@genus:root: 28> elaborate topLevel
+Error   : Could not find an HDL design. [CDFG-210] [elaborate]
+        : The design is 'topLevel'.
+        : Ensure that the design exists or the correct file was loaded.
+1
+@genus:root: 29> set_db hdl_track_filename_row_col true
+Info   : Enabled hdl_track_file_row_column attribute.
+       : Setting this attribute to 'true' can have an impact on the run time. Use this attribute only when filename, line number, and column information are needed in reports.
+  Setting attribute of root '/': 'hdl_track_filename_row_col' = true
+1 true
+@genus:root: 30> read_hdl adder4_behavorial.vhd
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 31> read_hdl -languaage vhdl adder4_behavorial.vhd
+Warning : Cannot open file. [VLOGPT-650]
+        : File '-languaage'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'vhdl'.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 1, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 1.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 2.
+-- VHDL Architecture Datapath_Counter_lib.adder4.behavorial
+                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 2, column 20.
+USE ieee.std_logic_1164.all;
+       |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 11, column 8.
+--USE ieee.std_logic_arith.all;
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 1.
+--USE ieee.std_logic_arith.all;
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 2.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Illegal redeclaration. [VLOGPT-22] [read_hdl]
+        : Redeclaration of symbol 'USE' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+--USE ieee.std_logic_arith.all;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 12, column 10.
+use ieee.numeric_std.all;
+  |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 3.
+use ieee.numeric_std.all;
+        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '.' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 13, column 9.
+ENTITY adder4 IS
+            |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 13.
+            b   : in std_logic_vector( 3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 18, column 17.
+            sum : out std_logic_vector(3 downto 0);
+                |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 19, column 17.
+            Cout : out std_logic
+                 |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found ':' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 20, column 18.
+END ENTITY adder4;
+         |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 22, column 10.
+--
+|
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 1.
+--
+ |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package item. in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 24, column 2.
+ARCHITECTURE behavorial OF adder4 IS
+                      |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 25, column 23.
+1
+@genus:root: 32> read_hdl -language vhdl  {adder4_behavorial.vhd Counter_Control_behave.vhd reg_4bit_behavorial.vhd comparator_10_datatflow.vhd  counterdatapath_behavorial.vhd topLevel_behavior.vhd }
+Warning : Unimplemented VHDL 2008 IEEE Package, reading VHDL 1993 version instead. [VHDLPT-808]
+        : VHDL 2008 version of 'ieee/std_logic_arith.vhdl' is not available.
+@genus:root: 33> set_db hdl_vhdl_read_version 2008
+  Setting attribute of root '/': 'hdl_vhdl_read_version' = 2008
+1 2008
+@genus:root: 34> read_hdl -language vhdl  {adder4_behavorial.vhd Counter_Control_behave.vhd reg_4bit_behavorial.vhd comparator_10_datatflow.vhd  counterdatapath_behavorial.vhd topLevel_behavior.vhd }
+ENTITY adder4 IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:adder4' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:adder4-behavorial' depends on overwritten unit 'default:adder4'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'adder4' in library 'default' with newly read VHDL entity 'adder4' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/adder4_behavorial.vhd' on line 15.
+ENTITY Counter_Control IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:Counter_Control' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/Counter_Control_behave.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:counter_control-behave' depends on overwritten unit 'default:counter_control'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'Counter_Control' in library 'default' with newly read VHDL entity 'Counter_Control' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/Counter_Control_behave.vhd' on line 14.
+ENTITY reg_4bit IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:reg_4bit' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/reg_4bit_behavorial.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:reg_4bit-behavorial' depends on overwritten unit 'default:reg_4bit'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'reg_4bit' in library 'default' with newly read VHDL entity 'reg_4bit' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/reg_4bit_behavorial.vhd' on line 14.
+ENTITY comparator_10 IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:comparator_10' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/comparator_10_datatflow.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:comparator_10-datatflow' depends on overwritten unit 'default:comparator_10'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'comparator_10' in library 'default' with newly read VHDL entity 'comparator_10' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/comparator_10_datatflow.vhd' on line 14.
+ENTITY CounterDatapath IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:CounterDatapath' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/counterdatapath_behavorial.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:counterdatapath-behavorial' depends on overwritten unit 'default:counterdatapath'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'CounterDatapath' in library 'default' with newly read VHDL entity 'CounterDatapath' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/counterdatapath_behavorial.vhd' on line 14.
+ENTITY topLevel IS
+|
+Warning : Replacing existing design unit. [VHDLPT-800]
+        : Unit 'default:topLevel' in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd' on line 14, column 1.
+Warning : Marking out-of-date unit as invalid. [VHDLPT-801]
+        : Unit 'default:toplevel-behavior' depends on overwritten unit 'default:toplevel'.
+Warning : Replacing previously read Verilog module or VHDL entity. [HPT-76]
+        : Replacing VHDL entity 'topLevel' in library 'default' with newly read VHDL entity 'topLevel' in the same library in file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd' on line 14.
+@genus:root: 35> elaborate topLevel
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'topLevel' from file '/home/sweet12prof/Desktop/CAD/Cadence2/Counter_10/rtl/topLevel_behavior.vhd'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavior' for entity 'topLevel'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'CounterDatapath'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'reg_4bit'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behavorial' for entity 'adder4'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'datatflow' for entity 'comparator_10'.
+Info    : Binding to architecture. [ELAB-5]
+        : Elaborating architecture 'behave' for entity 'Counter_Control'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'topLevel'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+design:topLevel_4
+@genus:root: 36> gui-show
+invalid command name "gui-show"
+@genus:root: 37> gui-show
+invalid command name "gui-show"
+@genus:root: 38> gui_show
+.schematic_tk.sgn.vbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.vbar"
+.schematic_tk.sgn.hbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.hbar"
+.schematic_tk.sgn.vbar set 0 1.00067
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.vbar"
+.schematic_tk.sgn.hbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.hbar"
+@genus:root: 39> 
+@genus:root: 39> gui-sjow
+invalid command name "gui-sjow"
+@genus:root: 40> gui_show
+.schematic_tk.sgn.vbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.vbar"
+.schematic_tk.sgn.hbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.hbar"
+.schematic_tk.sgn.vbar set 0 1.00067
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.vbar"
+.schematic_tk.sgn.hbar set 0 1
+// CSV_Gui-Error: invalid command name ".schematic_tk.sgn.hbar"
+Normal exit.

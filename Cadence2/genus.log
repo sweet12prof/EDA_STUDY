@@ -1,0 +1,93 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 GMT 2018
+Options: 
+Date:    Wed Oct 21 12:01:19 2020
+Host:    tiuelabb4.ti.lab (x86_64 w/Linux 3.10.0-1127.19.1.el7.x86_64) (4cores*4cpus*1physical cpu*Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz 6144KB) (7887160KB)
+OS:      CentOS Linux release 7.8.2003 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (14 seconds elapsed).
+
+WARNING: This version of the tool is 866 days old.
+@genus:root: 1> ls
+cds.lib
+cdsLibMgr.il
+cdsinfo.tag
+common_bindkeys.il
+display.drf
+genus.cmd
+genus.log
+layoutPlotTemplate
+lib.defs
+libManager.log
+libManager.log.cdslck
+pvsUI_ipvs.log
+schPlotTemplate
+@genus:root: 2> set_db library ./cds.lib
+Error   : Fail to load library file. [LBR-522] [set_db]
+        : Attempt to read .lib library '/home/sweet12prof/Desktop/CAD/Cadence2/cds.lib' failed
+        : Fix the library read error, then reload the library.
+
+Threads Configured:3
+Invalid character detected on line 1!
+Expected "(" or ":". Found "$"Error   : Parsing error. [LBR-130] [set_db]
+        : Syntax error/unsupported construct 'Unexpected characters found' (File /home/sweet12prof/Desktop/CAD/Cadence2/cds.lib, Line 1)
+        : Invalid liberty syntax is parsed, or unsupported liberty syntax is encountered.
+Error   : Fail to load library file. [LBR-522] [set_db]
+        : Attempt to read .lib library '/home/sweet12prof/Desktop/CAD/Cadence2/cds.lib' failed
+
+  Message Summary for Library cds.lib:
+  ************************************
+  Fail to load library file. [LBR-522]: 2
+  Parsing error. [LBR-130]: 1
+  ************************************
+ 
+Bad technology libraries.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value './cds.lib' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+1
+@genus:root: 3> ls
+cds.lib
+cdsLibMgr.il
+cdsinfo.tag
+common_bindkeys.il
+display.drf
+genus.cmd
+genus.log
+layoutPlotTemplate
+lib.defs
+libManager.log
+libManager.log.cdslck
+pvsUI_ipvs.log
+schPlotTemplate
+@genus:root: 4> set lib_path=/eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib
+can't read "lib_path=/eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib": no such variable
+@genus:root: 5> lib_path=/eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib
+invalid command name "lib_path=/eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib"
+@genus:root: 6> set_db library /eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib
+
+Threads Configured:3
+
+  Message Summary for Library gscl45nm.lib:
+  *****************************************
+  Could not find an attribute in the library. [LBR-436]: 96
+  Missing library level attribute. [LBR-516]: 1
+  *****************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.100000, 27.000000) in library 'gscl45nm.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+  Setting attribute of root '/': 'library' = /eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib
+1 /eda/pdk/FreePDK45/osu_soc/lib/files/gscl45nm.lib
+@genus:root: 7> exi5t
+invalid command name "exi5t"
+@genus:root: 8> exit
+Normal exit.

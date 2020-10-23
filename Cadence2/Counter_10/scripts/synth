@@ -1,0 +1,28 @@
+#----------------------------------------------------------------------------------#
+#--------------------- Set paths
+#----------------------------------------------------------------------------------#
+
+#-----Library Path
+set_db init_lib_search_path /eda/pdk/FreePDK45/osu_soc/lib/files/
+
+
+#----script Path 
+set_db script_search_path ~/Desktop/CAD/Cadence2/Counter_10/scripts/
+
+#----HDL Path
+set_db init_hdl_search ~/Desktop/CAD/Cadence2/Counter_10/rtl/
+
+
+#----------------------------Technology Library
+set_db library gscl45nm.lib
+
+
+#---------------------------readFiles
+set_db hdl_vhdl_read_version 1993
+read_hdl -language vhdl { adder4_behavorial.vhd Counter_Control_behave.vhd reg_4bit_behavorial.vhd comparator_10_datatflow.vhd counterdatapath_behavorial.vhd topLevel_behavior.vhd  }
+
+
+#-----------------------elaborate
+elaborate topLevel
+
+

@@ -1,0 +1,1 @@
+("m2_m1:/\tm2_m1 NCSU_TechLib_tsmc04_4M2P layout" (("open" (nil hierarchy "/{NCSU_TechLib_tsmc04_4M2P m2_m1 layout }:r"))) (((-0.394 -0.242) (0.795 0.644)) "r" "Layout" 6))("DFF_Clr:/\tDFF_Clr NCSU_Digital_Parts physConfig" (("cfgopen" (nil hierarchy "/{NCSU_Digital_Parts DFF_Clr physConfig}:r"))) nil)
